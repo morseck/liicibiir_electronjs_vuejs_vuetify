@@ -10,7 +10,7 @@
 </template>
 
 <script>
-    import ConteneurShow from '../components/conteneurs/ConteneurShow'
+    import ConteneurShow from '../../components/conteneurs/ConteneurShow'
     export default {
         name: "ConteneurDetails",
         components:{
@@ -18,7 +18,7 @@
         },
         data :()=>({
             idConteneur: '',
-            numero: ''
+            numero: '',
         }),
         computed:{
             resourceConteneur(){ //utilisation des resources
@@ -42,10 +42,6 @@
                 this.numero = this.getNumeroContenneurParams;
 
             },
-            testEmit(){
-                //this.$route.params.numero = "mor";
-                console.log("tst");
-            }
         },
         mounted() {
             /*
@@ -55,6 +51,7 @@
             */
             this.$conteneur = this.resourceConteneur;
             this.initialize();
+
 
         },
     }

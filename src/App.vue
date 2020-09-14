@@ -134,19 +134,26 @@
       </v-card>
     </v-footer>
 
-    <v-btn
-      v-scroll="onScroll"
-      bottom
-      color=rgb(196,106,24)
-      dark
-      fab
-      fixed
-      right
-      @click="toTop"
-      class="clickable"
-    >
-      <v-icon>mdi-chevron-up</v-icon>
-    </v-btn>
+      <v-tooltip bottom>
+          <template v-slot:activator="{ on, attrs }">
+              <v-btn
+                  v-bind="attrs"
+                  v-on="on"
+                  v-scroll="onScroll"
+                  bottom
+                  color=rgb(196,106,24)
+                  dark
+                  fab
+                  fixed
+                  right
+                  @click="toTop"
+                  class="clickable"
+                >
+              <v-icon>mdi-chevron-up</v-icon>
+            </v-btn>
+          </template>
+          <span>Aller en haut</span>
+      </v-tooltip>
 
   </v-app>
 </template>
@@ -169,6 +176,9 @@
       },
       toTop(){
         this.$vuetify.goTo(0)
+      },
+      logout(){
+
       }
     },
     data: () => ({
@@ -177,28 +187,8 @@
       fab: false,
       items: [
         {icon: 'home', text: 'Tableau de bord', route:'/'},
-        {
-          icon: 'mdi-chevron-up',
-          'icon-alt': 'mdi-chevron-down',
-          'icon-ctr': 'mdi-cube',
-          text: 'Conteneurs',
-          model: false,
-          children:[
-            {icon: 'mdi-view-headline', text:'Lister les conteneurs', route: '/ConteneurIndex'},
-            {icon: 'mdi-plus-circle-outline', text:'Ajouter un conteneur', route: '/Type'}
-          ]
-        },
-        {
-          icon: 'mdi-chevron-up',
-          'icon-alt': 'mdi-chevron-down',
-          'icon-ctr': 'mdi-book-multiple',
-          text: 'Produits',
-          model: false,
-          children: [
-            {icon: 'mdi-bookmark-plus', text: 'Ajouter un produit', route: '/locate'},
-            {icon: 'mdi-view-headline', text: 'Lister les produits', route: '/print'},
-          ]
-        },
+        {icon: 'mdi-cube', text: 'Conteneurs', route:'/ConteneurIndex'},
+        {icon: 'mdi-book-multiple', text: 'Produits', route:'/produitsIndex'},
         {
           icon: 'mdi-chevron-up',
           'icon-alt': 'mdi-chevron-down',
@@ -206,8 +196,8 @@
           text: 'Opérations',
           model: false,
           children: [
-            {icon: 'mdi-clipboard-arrow-down', text: 'Opération Entrante', route: '/locate'},
-            {icon: 'mdi-clipboard-arrow-up', text: 'Opération Sortante', route: '/print'},
+            {icon: 'mdi-clipboard-arrow-down', text: 'Opération Entrante', route: '/operationEntrante'},
+            {icon: 'mdi-clipboard-arrow-up', text: 'Opération Sortante', route: '/operationSortante'},
           ]
         },
         {icon: 'mdi-history', text:'Historique', route: '/historique'},

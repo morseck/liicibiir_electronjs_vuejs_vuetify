@@ -1,19 +1,19 @@
-<template >
+<template>
     <v-layout>
         <v-row class="clickable">
             <v-col cols="12" md="12">
-                <ConteneurList></ConteneurList>
+                <ProduitsList></ProduitsList>
             </v-col>
         </v-row>
     </v-layout>
 </template>
 
 <script>
-    import ConteneurList from '../components/conteneurs/ConteneurList'
+    import ProduitsList from '../../components/produits/ProduitList'
     export default {
-        name: "ConteneursIndex",
+        name: "ProduitsIndex",
         components: {
-            ConteneurList
+            ProduitsList
         }
     }
 </script>
